@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"bufio"
 	"io/ioutil"
 	"strings"
 )
@@ -95,7 +94,7 @@ func main() {
 	//	}
 	//}
 
-	// dup3
+	// dup3 读入文件统计当前行出现次数
 	counts := make(map[string]int)
 	for _, filename := range os.Args[1:] {
 		data, err := ioutil.ReadFile(filename)
@@ -116,9 +115,9 @@ func main() {
 
 }
 
-func countLines(f *os.File, counts map[string]int) {
-	input := bufio.NewScanner(f);
-	for input.Scan() {
-		counts[input.Text()]++
-	}
-}
+//func countLines(f *os.File, counts map[string]int) {
+//	input := bufio.NewScanner(f);
+//	for input.Scan() {
+//		counts[input.Text()]++
+//	}
+//}
