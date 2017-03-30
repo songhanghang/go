@@ -1,4 +1,4 @@
-package studygo
+package main
 
 import (
 	"fmt"
