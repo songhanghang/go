@@ -2,9 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"io/ioutil"
-	"strings"
 )
 
 func main() {
@@ -95,29 +92,45 @@ func main() {
 	//}
 
 	// dup3 读入文件统计当前行出现次数
-	counts := make(map[string]int)
-	for _, filename := range os.Args[1:] {
-		data, err := ioutil.ReadFile(filename)
-		if err != nil {
-			fmt.Fprint(os.Stderr, "dup3: %v\n", err)
-			continue
-		}
+	// counts := make(map[string]int)
+	// for _, filename := range os.Args[1:] {
+	// 	data, err := ioutil.ReadFile(filename)
+	// 	if err != nil {
+	// 		fmt.Fprint(os.Stderr, "dup3: %v\n", err)
+	// 		continue
+	// 	}
 
-		for _, line := range strings.Split(string(data), "\n") {
-			counts[line]++
-		}
-	}
-	for line, n := range counts {
-		if n > 1 {
-			fmt.Println("%d\t%s\n", n, line)
-		}
-	}
+	// 	for _, line := range strings.Split(string(data), "\n") {
+	// 		counts[line]++
+	// 	}
+	// }
+	// for line, n := range counts {
+	// 	if n > 1 {
+	// 		fmt.Println("%d\t%s\n", n, line)
+	// 	}
+	// }
 
+	// 指针操作
+	//x := 1
+	//p := &x
+	//fmt.Println(&x)
+	//fmt.Println(p)
+	//*p = 2
+	//fmt.Println(x)
+
+	//num := 1;
+	//a := [10]int{num, 2, 3, 4, 5, 6, 7, 8, 9, 0}
+	//a[0] = 2;
+	//fmt.Println(num)
+
+	p := new(int)
+	fmt.Println(p)
+	fmt.Println(*p)
+	*p = 2
+	fmt.Println(p)
+	fmt.Println(*p)
+
+	//delta(0
 }
 
-//func countLines(f *os.File, counts map[string]int) {
-//	input := bufio.NewScanner(f);
-//	for input.Scan() {
-//		counts[input.Text()]++
-//	}
-//}
+
